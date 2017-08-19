@@ -22,7 +22,8 @@ def get_most_n_frequent(text, outfile, freq_file, top):
     top_words = word_counter.most_common(top)
     outfile.write('\n'.join([w for w, f in word_counter.most_common(top)]))
     outfile.write('\n')
-    freq_file.write('\n'.join(["{}\t{}".format(w, f) for w, f in top_words]))
+    sorted_top_words = sorted(top_words.items(), key=lambda pair: pair[1], reverse=True)
+    freq_file.write('\n'.join(["{}\t{}".format(w, f) for w, f in sorted_top_words]))
 
 
 def get_freqs_gt(text, outfile, freq_file, gt):
@@ -30,6 +31,7 @@ def get_freqs_gt(text, outfile, freq_file, gt):
     word_counter.update(text.split())
     outfile.write('\n'.join([w for w, f in word_counter.items() if f > gt]))
     outfile.write('\n')
+    sorted_word_counter = sorted(word_counter.items(), key=lambda pair: pair[1], reverse=True)
     freq_file.write('\n'.join(["{}\t{}".format(w, f) for w, f in word_counter.items() if f > gt]))
 
 
