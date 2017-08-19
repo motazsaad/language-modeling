@@ -34,4 +34,4 @@ ngram -lm ${lm_dir}/${corpus_name}.gt${g}.lm -prune 1e-${p} -write-lm ${lm_dir}/
 printf "%s\n" "converting language model to DMP format"
 sphinx_lm_convert \
 -i ${lm_dir}/${corpus_name}.gt${g}_pruned${p}.lm \
--o ${dmp_dir}/${corpus_name}.gt${g}_pruned${p}.lm.DM
+-o ${dmp_dir}/${corpus_name}.gt${g}_pruned${p}.lm.DMP
