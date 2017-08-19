@@ -9,7 +9,7 @@ vocab_dir=vocabs
 lm_dir=lms
 sh_dir=language-modeling
 
-g=100
+g=10
 p=8
 
 
