@@ -1,10 +1,16 @@
 #!/usr/bin/env bash
-for corpus in train/*.arb
+
+if [ $# -ne 1 ]; then
+    echo "usage ${0} text_dir";
+    echo "text_dir: text data directory";
+    return -1;
+fi
+
+text_dir=${1}
+
+for corpus in ${text_dir}/*.arb
 do
     echo "building LM for ${corpus}"
-    nohup ./build_lm.sh ${corpus} &> ${corpus}.ngramcount&
+    nohup ./build_lm.sh ${corpus} &> ${corpus}.srilm.out&
 done 
-
-# cd lms
-# for l in *.lm ; do head -n 100 $l > ../head_lm/$l; done 
 
