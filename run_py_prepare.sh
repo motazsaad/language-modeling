@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 source ~/py3env/bin/activate
 
 for c in corpus_compressed/*.arb 

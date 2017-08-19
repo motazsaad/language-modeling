@@ -1,22 +1,25 @@
  #!/usr/bin/env bash
 
-if [ $# -ne 5 ]; then
+if [ $# -ne 6 ]; then
     echo "usage ${0} gt text_dir vocab_dir";
     echo "text_dir: text data directory";
     echo "vocab_dir: vocab directory";
     echo "lm_dir: vocab directory";
     echo "gt: words that have frequency greater than gt";
     echo "p: pruning parameter";
+    echo "dmp_dir: dmp language models directory";
     return -1;
 fi
 
 text_file=${1}
 vocab_dir=${2}
 lm_dir=${3}
-g=${4}
-p=${5}
+dmp_dir=${4}
+g=${5}
+p=${6}
 
 mkdir -p ${lm_dir}
+mkdir -p ${dmp_dir}
 
 filename=$(basename "${text_file}")
 corpus_name="${filename%%.*}"
@@ -31,4 +34,4 @@ ngram -lm ${lm_dir}/${corpus_name}.gt${g}.lm -prune 1e-${p} -write-lm ${lm_dir}/
 printf "%s\n" "converting language model to DMP format"
 sphinx_lm_convert \
 -i ${lm_dir}/${corpus_name}.gt${g}_pruned${p}.lm \
--o ${lm_dir}/${corpus_name}.gt${g}_pruned${p}.lm.DM
+-o ${dmp_dir}/${corpus_name}.gt${g}_pruned${p}.lm.DM
