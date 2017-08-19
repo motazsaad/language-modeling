@@ -6,7 +6,7 @@ if [ $# -ne 4 ]; then
     echo "text_dir: text data directory";
     echo "vocab_dir: vocab directory";
     echo "py_dir: wordfreq2vocab.py directory";
-    return -1;
+    exit -1;
 fi
 
 source ~/py3env/bin/activate
