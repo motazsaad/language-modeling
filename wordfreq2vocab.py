@@ -32,7 +32,7 @@ def get_freqs_gt(text, outfile, freq_file, gt):
     outfile.write('\n'.join([w for w, f in word_counter.items() if f > gt]))
     outfile.write('\n')
     sorted_word_counter = sorted(word_counter.items(), key=lambda pair: pair[1], reverse=True)
-    freq_file.write('\n'.join(["{}\t{}".format(w, f) for w, f in word_counter.items() if f > gt]))
+    freq_file.write('\n'.join(["{}\t{}".format(w, f) for w, f in sorted_word_counter.items() if f > gt]))
 
 
 def get_all_vocab(text, outfile):
