@@ -7,6 +7,9 @@
 text_dir=train
 vocab_dir=vocabs
 lm_dir=lms
+sh_dir=language-modeling
+
+mkdir -p lm-out
 
 g=100
 p=8
@@ -15,7 +18,7 @@ p=8
 for corpus in ${text_dir}/*.arb
 do
     echo "building LM for ${corpus}"
-    nohup ./build_lm.sh ${corpus} ${vocab_dir} ${lm_dir} ${g} ${p}  &> ${corpus}.srilm.out&
+    nohup bash ${sh_dir}/build_lm.sh ${corpus} ${vocab_dir} ${lm_dir} ${g} ${p}  &> lm-out/${corpus}.srilm.out&
 done 
 
 
