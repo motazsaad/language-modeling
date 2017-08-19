@@ -23,12 +23,12 @@ corpus_name="${filename%%.*}"
 printf "%s\n" "building language mode for ${text_file}"
 ngram-count -kndiscount -interpolate -text ${text_file} \
 -vocab ${vocab_dir}/${corpus_name}.gt${g}.vocab  \
--lm ${lm_dir}/${corpus_name}.lm
+-lm ${lm_dir}/${corpus_name}.gt${g}.lm
 
 printf "%s\n" "pruning the language model with 1e-${p}"
-ngram -lm ${lm_dir}/${corpus_name}.lm -prune 1e-${p} -write-lm ${lm_dir}/${corpus_name}_pruned${p}.lm
+ngram -lm ${lm_dir}/${corpus_name}.gt${g}.lm -prune 1e-${p} -write-lm ${lm_dir}/${corpus_name}.gt${g}_pruned${p}.lm
 
 printf "%s\n" "converting language model to DMP format"
 sphinx_lm_convert \
--i ${lm_dir}/${corpus_name}_gt${g}pruned${p}.lm \
--o ${lm_dir}/${corpus_name}_gt${g}pruned${p}.lm.DM
+-i ${lm_dir}/${corpus_name}.gt${g}_pruned${p}.lm \
+-o ${lm_dir}/${corpus_name}.gt${g}_pruned${p}.lm.DM
