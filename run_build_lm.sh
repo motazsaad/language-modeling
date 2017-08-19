@@ -4,9 +4,9 @@
 #vocab_dir=${2}
 #lm_dir=${3}
 
-text_dir=
-vocab_dir=
-lm_dir=
+text_dir=train
+vocab_dir=vocabs
+lm_dir=lms
 
 g=100
 p=8

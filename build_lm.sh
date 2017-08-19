@@ -16,6 +16,7 @@ lm_dir=${3}
 g=${4}
 p=${5}
 
+mkdir -p ${lm_dir}
 
 filename=$(basename "${text_file}")
 corpus_name="${filename%%.*}"
