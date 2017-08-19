@@ -43,16 +43,14 @@ def get_all_vocab(text, outfile):
 
 if __name__ == '__main__':
     args = parser.parse_args()
-    # print(args)
     infile = args.text.read()
-    print('text |w|={}'.format(len(infile.split())))
-    print('text |v|={}'.format(len(set(infile.split()))))
     outfile = args.vocabulary
     freq_file = args.frequency
+    freq_file.write('# text |w|={}\n'.format(len(infile.split())))
+    freq_file.write('# text |v|={}\n'.format(len(set(infile.split()))))
     if args.top:
         get_most_n_frequent(infile, outfile, freq_file, args.top)
     if args.gt:
         get_freqs_gt(infile, outfile, freq_file, args.gt)
     if args.all:
         get_all_vocab(infile, outfile)
-
