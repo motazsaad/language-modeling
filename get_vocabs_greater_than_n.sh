@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ $# -ne 3 ]; then
+if [ $# -ne 4 ]; then
     echo "usage ${0} gt text_dir vocab_dir";
     echo "gt: words that have frequency greater than gt";
     echo "text_dir: text data directory";
