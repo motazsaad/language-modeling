@@ -27,7 +27,7 @@ do
     filename=$(basename "$corpus")
     corpus_name="${filename%%.*}"
     printf "generating vocab for %s \t words greater than %s \n" " ${corpus} ${g}"
-    python wordfreq2vocab.py -t ${corpus} \
+    python ${py_dir}/wordfreq2vocab.py -t ${corpus} \
     -v vocabs/${corpus_name}.gt${g}.vocab \
     -f vocabs/${corpus_name}.gt${g}.freq \
     -gt ${g}
