@@ -14,9 +14,9 @@ fi
 text_file=${1}
 vocab_dir=${2}
 lm_dir=${3}
-dmp_dir=${4}
-g=${5}
-p=${6}
+g=${4}
+p=${5}
+dmp_dir=${6}
 
 mkdir -p ${lm_dir}
 mkdir -p ${dmp_dir}
