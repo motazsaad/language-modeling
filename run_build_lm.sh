@@ -10,7 +10,7 @@ lm_dir=lms
 dmp_dir=dmps
 sh_dir=language-modeling
 
-g=10
+g=100
 p=8
 
 
