@@ -10,7 +10,7 @@ cat select_corpus/newswire1.arb train/afp.arb train/arwiki_07_2017.arb train/ahr
 
 
 # newswire_all
-cat train/*.arb execluded_train/bbc_2017.arb execluded_train/s0192.arb > select_corpus/newswire_all.arb
+#cat train/*.arb execluded_train/bbc_2017.arb execluded_train/s0192.arb > select_corpus/newswire_all.arb
 
 
 nohup bash language-modeling/get_vocabs_greater_than_n.sh 200 ~/mod_home/selected_newswire vocabs language-modeling &
