@@ -52,7 +52,7 @@ def html2text(text):
 def remove_links(text):
     # return re.sub(r'\s*(?:https?://)?www\.\S*\.[A-Za-z]{2,5}\s*', ' ', text, flags=re.MULTILINE).strip()
     # return re.sub(r'^https?:\/\/.*[\r\n]*', '', clean_text, flags=re.MULTILINE)
-    return re.sub(r'(https|http)?:\/\/(\w|\.|\/|\?|\=|\&|\%)*\b', '', text, flags=re.MULTILINE)
+    return re.sub(r'(https|http)?:\/\/(\w|\.|\/|\?|\=|\&|\%)*\b', '\n', text, flags=re.MULTILINE)
 
 
 def remove_empty_lines(text):
@@ -89,6 +89,7 @@ def pre_clean(text):
     text = remove_diacritics(text)
     text = remove_punctuation2(text)
     text = remove_empty_lines(text)
+    #text = remove_lines_contain_only_numbers(text)
     return text
 
 def post_clean(text):
@@ -219,6 +220,18 @@ def remove_lines_contain_nonarabic_words(text):
         for word in line.split():
             if not ad.is_arabic(word):
                 arabic=False
+        if arabic:
+            clean_lines.append(line)
+    return '\n'.join(clean_lines)
+
+def remove_lines_contain_only_numbers(text):
+    clean_lines = list()
+    for line in text.splitlines():
+        arabic=False
+        for word in line.split():
+            if not IsInt(word):
+                arabic=True
+		#break
         if arabic:
             clean_lines.append(line)
     return '\n'.join(clean_lines)

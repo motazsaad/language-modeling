@@ -1,12 +1,14 @@
+lm_dir=${1}
+out_dir=${2}
 
     wav_dir="/home/motaz/asr_dev/wav_recordings/part4/part4/jsc_20180731.wav"
     clt_file="/home/motaz/asr_dev/wav_recordings/part4/part4/jsc_20180731.fileids"
     dic_file="/home/motaz/asr_dev/arabic-spell-check/split-waw-corpus/split-waw-except_jsc7.dic"
     hmm_dir="/home/motaz/asr_dev/models/versions/v1/corected_1500"
-    out_dir="/home/motaz/LM/cnn-euronews-bbc-rt-jsc-crawler-aaw-xin/results"
+
     mkdir -p ${out_dir}
 
-    for lm_file in /home/motaz/LM/cnn-euronews-bbc-rt-jsc-crawler-aaw-xin/dmp/cnn-euronews-bbc-rt-jsc-crawler-aaw-xin.gt50.lm.DMP
+    for lm_file in ${lm_dir}/*.DMP
     do
 	    lm_name=$(basename $lm_file)
 	    echo $lm_name
