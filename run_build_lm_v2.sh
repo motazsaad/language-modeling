@@ -27,10 +27,6 @@ do
     filename=$(basename "${corpus}")
     corpus_name="${filename%%.*}"
 
-    unks=( -unk "" )
-    interpolates=( -interpolate "" )
-    discounts=( -ndiscount -wbdiscount -kndiscount -ukndiscount "" )
-
     /home/motaz/srilm/bin/i686-m64/ngram-count -unk -ukndiscount  -text ${corpus} \
       -vocab ${vocab_dir}/${corpus_name}.${gt}${g}.vocab \
       -lm ${lm_dir}/${corpus_name}.${gt}${g}.lm
