@@ -29,3 +29,10 @@ usage: wordfreq2vocab.py [-h] -t TEXT -v VOCABULARY -f FREQUENCY
 ## steps for building LM: 
 ```build_lm/build_lm.sh```
 
+
+##add the scripts  	
+* run_build_lm_v1.1.sh  to build LM
+* test_LM_decoding.sh  decode using DMP
+* sclite.sh  test the results
+* formating.sh  reformatting utterances id and test it
+* mix_lm.sh   interpolate two language models
