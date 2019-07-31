@@ -30,7 +30,7 @@ usage: wordfreq2vocab.py [-h] -t TEXT -v VOCABULARY -f FREQUENCY
 ```build_lm/build_lm.sh```
 
 
-##add the scripts  	
+## add the scripts  	
 * run_build_lm_v1.1.sh  to build LM
 * test_LM_decoding.sh  decode using DMP
 * sclite.sh  test the results
