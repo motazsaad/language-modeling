@@ -31,7 +31,7 @@ usage: wordfreq2vocab.py [-h] -t TEXT -v VOCABULARY -f FREQUENCY
 
 ____
 ## add the scripts  	
-* run_build_lm_v1.1.sh  \tbuild LM
+* run_build_lm_v1.1.sh  build LM
 * test_LM_decoding.sh  decode using DMP
 * sclite.sh  test the results
 * formating.sh  reformatting utterances id and test it
